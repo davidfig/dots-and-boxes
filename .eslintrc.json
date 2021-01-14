@@ -1,0 +1,61 @@
+{
+    "env": {
+        "commonjs": true,
+        "es6": true,
+        "node": true
+    },
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaVersion": 2018
+    },
+    "rules": {
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "brace-style": [
+            "error",
+            "1tbs"
+        ],
+        "no-undef": 1,
+        "no-unused-vars": 1,
+        "indent": [
+            "error",
+            4,
+            {
+                "SwitchCase": 0
+            }
+        ]
+    },
+    "globals": {
+        "document": true,
+        "window": true,
+        "debug": true,
+        "debugOne": true,
+        "console": true,
+        "ga": true,
+        "navigator": true,
+        "XMLHttpRequest": true,
+        "__dirname": true,
+        "process": true,
+        "performance": true,
+        "requestAnimationFrame": true,
+        "cancelAnimationFrame": true,
+        "Image": true,
+        "getComputedStyle": true,
+        "localStorage": true,
+        "PIXI": true,
+        "device": true,
+        "AudioContext": true,
+        "THREE": true,
+        "fetch": true,
+        "FormData": true,
+        "Event": true,
+        "sessionStorage": true,
+        "URLSearchParams": true,
+        "MutationObserver": true,
+        "WebSocket": true,
+        "it": true,
+        "describe": true
+    }
+}

@@ -80,7 +80,7 @@ async function buildJs(minify) {
             bundle: true,
             outfile: `${_dir}/index.${_cache}.js`,
             minify,
-            // sourcemap: !minify,
+            sourcemap: !minify,
         })
         log(`packaged javascript (${roundTo(performance.now() - now, 2)}ms).`)
     } catch(e) {

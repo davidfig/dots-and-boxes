@@ -6,9 +6,10 @@ import { input } from './input'
 // import { state } from './state'
 import { settings } from './settings'
 import packageJSON from '../package.json'
+import { Data } from './data/data'
 
 const coverTime = 1500
-const maxFrameTime = 1000 / 60
+// const maxFrameTime = 1000 / 60
 
 class Main {
     async start() {
@@ -36,6 +37,8 @@ class Main {
         } else {
             document.querySelector('.cover').remove()
         }
+
+        new Data(10, 10)
     }
 
     handleCover(now) {
