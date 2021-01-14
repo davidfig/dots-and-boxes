@@ -1,0 +1,25 @@
+{
+  "name": "dots-and-boxes",
+  "title": "Dots and Boxes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node generate/compile"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "chokidar": "^3.5.0",
+    "cuid": "^2.1.8",
+    "esbuild": "^0.8.31",
+    "express": "^4.17.1",
+    "fs-extra": "^9.0.1",
+    "n-readlines": "^1.0.1",
+    "ws": "^7.4.2"
+  },
+  "dependencies": {
+    "localforage": "^1.9.0",
+    "yy-fps": "^1.1.0"
+  }
+}
