@@ -38,7 +38,12 @@ class Main {
             document.querySelector('.cover').remove()
         }
 
-        new Data(10, 10)
+        const data = new Data(10, 10)
+        data.addLine(2, 3, 2, 4)
+        data.addLine(2, 4, 3, 4)
+        data.addLine(3, 4, 3, 3)
+        data.addLine(3, 3, 2, 3)
+        console.log(data.getBoxes())
     }
 
     handleCover(now) {
