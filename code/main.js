@@ -7,6 +7,8 @@ import { input } from './input'
 import { settings } from './settings'
 import packageJSON from '../package.json'
 import { Data } from './data/data'
+import { Dot } from './data/dot'
+import { CheckBox } from './data/checkbox'
 
 const coverTime = 1500
 // const maxFrameTime = 1000 / 60
@@ -39,11 +41,21 @@ class Main {
         }
 
         const data = new Data(10, 10)
-        data.addLine(2, 3, 2, 4)
-        data.addLine(2, 4, 3, 4)
-        data.addLine(3, 4, 3, 3)
-        data.addLine(3, 3, 2, 3)
-        console.log(data.getBoxes())
+
+        // 4 boxes
+        data.addLine(0,0,0,1)
+        data.addLine(0,1,1,1)
+        data.addLine(1,0,1,1)
+        data.addLine(1,1,1,2)
+        data.addLine(1,2,0,2)
+        data.addLine(0,2,0,1)
+        data.addLine(0,0,1,0)
+        data.addLine(1,0,2,0)
+        data.addLine(1,1,2,1)
+        data.addLine(2,0,2,1)
+        data.addLine(2,2,2,1)
+        data.addLine(1,2,2,2)
+        
     }
 
     handleCover(now) {
