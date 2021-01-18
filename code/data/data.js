@@ -61,14 +61,26 @@ export class Data {
             }
             // checks a line drawn horizontally anywhere between the edges of the grid 
             else if ((y0 == y1) && (y0 != 0 || y0 != this.height-1)) {
-                if (checkobj.aboveline() || checkobj.belowline()) {
+                if (checkobj.aboveline()) {
+                    this.drawBox()
+                    if (checkobj.belowline()) {
+                        this.drawBox()
+                    }
+                }
+                else if (checkobj.belowline()) {
                     this.drawBox()
                 }
             }
             // checks a line drawn vertically anywhere between the edges of the grid 
             else if ((x0 == x1) && (x0 != 0 || x0 != this.width-1)) {
-                if (checkobj.leftofline() || checkobj.rightofline()) {
+                if (checkobj.leftofline()) {
                     this.drawBox()
+                    if (checkobj.rightofline()) {
+                        this.drawBox()
+                    }
+                }
+                else if (checkobj.rightofline()) {
+                    this.drawBox
                 }
             }
         }
