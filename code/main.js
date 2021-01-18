@@ -40,23 +40,13 @@ class Main {
             document.querySelector('.cover').remove()
         }
 
-        const data = new Data(10, 10)
-
+        const data = new Data(5,5)
         data.addLine(0,0,0,1)
         data.addLine(0,0,1,0)
-        data.addLine(1,0,1,1)
-        data.addLine(1,1,1,2)
-        data.addLine(1,2,0,2)
-        data.addLine(0,2,0,1)
         data.addLine(0,1,1,1)
-
-        data.addLine(1,0,2,0)
-        data.addLine(2,0,2,1)
-        data.addLine(2,1,2,2)
-        data.addLine(2,2,1,2)
-
-        data.addLine(2,1,1,1)
-        
+        data.addLine(1,1,1,0)
+        console.log(data)
+                
     }
 
     handleCover(now) {

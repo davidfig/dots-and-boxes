@@ -1,8 +1,16 @@
 import { Dot } from './dot'
 import { CheckBox } from './checkbox'
+import { Draw } from './draw'
 
 export class Data {
     constructor(width, height) {
+
+        if (width > 20 || height > 20)
+        {
+            console.log('Grid size must be less than 20')
+        }
+
+
         console.log(`Initialized dots-and-boxes with a ${width} x ${height} board.`)
         // create array of dots
         this.Dots = []
@@ -11,6 +19,9 @@ export class Data {
 
         this.height = height
         this.width = width
+        
+    const draw = new Draw(this.width, this.height)
+    this.draw = draw
 
         for (let y = 0; y < height; y++) {
             const row = []
@@ -18,6 +29,10 @@ export class Data {
             for (let x = 0; x < width; x++) {
                 // push new Dots to array
                 row.push(new Dot(x, y))
+                
+                // draw a dot here 
+                draw.drawDots((x*40)+50, (y*40)+50)
+
             }
         }
     }
@@ -25,6 +40,10 @@ export class Data {
     addLine(x0, y0, x1, y1) {
         //called everytime a line is added by the player
         //takes input of two dots, line added to array
+
+        //draw a line
+        this.draw.drawLines(x0, y0, x1, y1)
+
         let currentLine = [x0,y0,x1,y1]
         let checker = new CheckBox(this.Lines, currentLine)
         this.checkBox(x0, y0, x1, y1, checker)
@@ -90,7 +109,14 @@ export class Data {
         return this.Dots[y][x]
     }
 
+    drawLine() {
+        // draw from dot to dot 
+
+    }
+
     drawBox() {
+        // fill a box with the player initial
+
         console.log('box formed')
     }
 }
