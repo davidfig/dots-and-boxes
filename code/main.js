@@ -41,10 +41,10 @@ class Main {
         }
 
         const data = new Data(5,5)
-        data.addLine(0,0,0,1)
-        data.addLine(0,0,1,0)
-        data.addLine(0,1,1,1)
-        data.addLine(1,1,1,0)
+        // data.addLine(0,0,0,1)
+        // data.addLine(0,0,1,0)
+        // data.addLine(0,1,1,1)
+        // data.addLine(1,1,1,0)
         console.log(data)
                 
     }
