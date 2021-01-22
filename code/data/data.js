@@ -30,7 +30,7 @@ export class Data {
                 // push new Dots to array
                 row.push(dot)
                 // draw a dot here 
-                draw.drawDots(dot.x_canvas, dot.y_canvas)
+                draw.drawDots(x, y)
             }
         }
 
@@ -41,18 +41,19 @@ export class Data {
 
         // look out for two clicks, dot to dot 
         var clicks = 0
+        this.clicks = clicks
         this.clickedDots = []
 
         draw.canvas.addEventListener('click', (event) => {
-            clicks++
-            console.log(clicks)
+            this.clicks++
+            //console.log(event)
             
             const rect = draw.canvas.getBoundingClientRect()
+            //console.log(rect)
 
-            if (clicks == 1) {
-                // multiply by 2 because of pixel multiplier
-                const x0 = (event.clientX - rect.left)*2
-                const y0 = (event.clientY - rect.top)*2
+            if (this.clicks == 1) {
+                const x0 = (event.clientX - rect.left)
+                const y0 = (event.clientY - rect.top)
                 // figure out if a dot has been pressed and which one
                 let dot = new Dot(x0, y0)
                 let first_dot = dot.dotClick(this.Dots, width, height)
@@ -60,24 +61,23 @@ export class Data {
                     this.clickedDots.push(first_dot)
                 }
                 else {
-                    clicks = 0
+                    this.clicks = 0
                 }
             }
-            else if (clicks == 2) {
-                const x1 = (event.clientX - rect.left)*2
-                const y1 = (event.clientY - rect.top)*2
+            else if (this.clicks == 2) {
+                const x1 = (event.clientX - rect.left)
+                const y1 = (event.clientY - rect.top)
                 let dot = new Dot(x1, y1)
                 let second_dot = dot.dotClick(this.Dots, width, height)
                 if (second_dot != undefined && second_dot != this.clickedDots[0]) {
                     this.clickedDots.push(second_dot)
                     this.click()
-                    clicks = 0
                 }
                 else if (second_dot != undefined && second_dot == this.clickedDots[0]) {
-                    clicks = 1
+                    this.clicks = 1
                 }
                 else {
-                    clicks = 0
+                    this.clicks = 0
                 }
             }
         })
@@ -90,10 +90,15 @@ export class Data {
         let ymag = Math.abs(this.clickedDots[0].y - this.clickedDots[1].y)
 
         if ((xmag == 1 && ymag == 0) || (xmag == 0 && ymag == 1)) {
-            this.addLine(this.clickedDots[0].x, this.clickedDots[0].y, this.clickedDots[1].x, this.clickedDots[1].y) 
+            this.addLine(this.clickedDots[0].x, this.clickedDots[0].y, this.clickedDots[1].x, this.clickedDots[1].y)
+            this.clicks = 0
+            this.clickedDots = []
         } 
-        
-        this.clickedDots = []
+        else {
+            this.clicks = 1
+            this.clickedDots[0] = this.clickedDots[1]
+            this.clickedDots.splice(1, 1)
+        }
     }
 
     addLine(x0, y0, x1, y1) {

@@ -7,39 +7,28 @@ export class Draw {
 
         // initiate canvas
         const canvas = document.querySelector('.view')
+        //console.log(canvas)
         const ctx = canvas.getContext('2d')
+
+        var dpr = window.devicePixelRatio //2
+        var rect = canvas.getBoundingClientRect()
 
         this.canvas = canvas
         this.ctx = ctx
 
-        this.canvas.width = window.innerWidth * 2  //device pixel ratio gives resolution multiplier
-        this.canvas.height = window.innerHeight * 2
+        this.canvas.width = rect.width*dpr //device pixel ratio gives resolution multiplier
+        this.canvas.height = rect.height*dpr
 
-        // centre values
-        this.centreX = this.canvas.width / 2
-        this.centreY = this.canvas.height / 2
-
-        // // create box for game implementation in centre of screen
-        // this.ctx.lineWidth = 3
-        // this.ctx.strokeStyle = 'coral'
-        // this.ctx.strokeRect(this.centreX-(this.gridwidth/2), this.centreY-(this.gridheight/2), this.gridwidth, this.gridheight)
-        
-        let fontsize = 40
-
-        // text
-        this.ctx.font = `${fontsize}px Calibri`
-        this.ctx.fillStyle = 'black'
-        this.ctx.fillText('Dots and Boxes - OL', 20, 40)
+        this.ctx.scale(dpr,dpr)
 
     }
 
     drawDots(x_position, y_position) {
         
-        let dot_size = 8
-
+        let dot_size = 6
         this.ctx.strokeStyle = 'black'
         this.ctx.beginPath()
-        this.ctx.arc(x_position, y_position, dot_size, 0, Math.PI*2, true)
+        this.ctx.arc((x_position*50)+27, (y_position*50)+30, dot_size, 0, Math.PI*2, true)
         this.ctx.stroke()
         this.ctx.fill()
     }
@@ -49,14 +38,16 @@ export class Draw {
         this.ctx.strokeStyle = 'coral'
         this.ctx.beginPath()
         this.ctx.lineWidth = 3
-        this.ctx.moveTo((x0_position*70)+50,(y0_position*70)+80)
-        this.ctx.lineTo((x1_position*70)+50, (y1_position*70)+80)
+        this.ctx.moveTo((x0_position*50)+27,(y0_position*50)+30)
+        this.ctx.lineTo((x1_position*50)+27, (y1_position*50)+30)
         this.ctx.stroke()
     }
 
     fillBox() {
         // player initial in centre of box formed
         console.log('box formed')
+
+
     }
 
 }

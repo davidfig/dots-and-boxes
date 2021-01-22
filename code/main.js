@@ -40,13 +40,31 @@ class Main {
             document.querySelector('.cover').remove()
         }
 
-        const data = new Data(5,5)
+        const data = new Data(6,6)
         // data.addLine(0,0,0,1)
         // data.addLine(0,0,1,0)
         // data.addLine(0,1,1,1)
         // data.addLine(1,1,1,0)
         console.log(data)
-                
+
+        //console.dir(document)
+        var bg = document.querySelector('body')
+        //console.log(bg)
+
+
+        // var newDiv = document.createElement('div')  
+        // var newDivText = document.createTextNode('Hello Ollie')
+        // newDiv.appendChild(newDivText)
+        
+        // console.log(newDiv)
+         
+        // var cnv = document.querySelector('.version')
+        // console.log(cnv)
+
+        // bg.insertBefore(newDiv,cnv)
+
+        // console.log(document)
+        
     }
 
     handleCover(now) {
